@@ -22,7 +22,7 @@ echo "<script>alert('Doctor Details updated Successfully');</script>";
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Clerk | Edit Clerks Details</title>
+		<title>Doctr | Edit Doctor Details</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -52,14 +52,14 @@ echo "<script>alert('Doctor Details updated Successfully');</script>";
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Clerk | Edit Clerks Details</h1>
+									<h1 class="mainTitle">Doctor | Edit Doctor Details</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>Clerk</span>
+										<span>Doctor</span>
 									</li>
 									<li class="active">
-										<span>Edit Clerks Details</span>
+										<span>Edit Doctor Details</span>
 									</li>
 								</ol>
 							</div>
@@ -74,7 +74,7 @@ echo "<script>alert('Doctor Details updated Successfully');</script>";
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Edit Clerk</h5>
+													<h5 class="panel-title">Edit Doctor</h5>
 												</div>
 												<div class="panel-body">
 									<?php $sql=mysqli_query($con,"select * from doctors where docEmail='".$_SESSION['dlogin']."'");
@@ -89,13 +89,13 @@ while($data=mysqli_fetch_array($sql))
 <hr />
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
-															<label for="ClerkSpecialization">
-																Clerk Specialization
+															<label for="DoctorSpecialization">
+																Doctor Specialization
 															</label>
-							<select name="Clerkspecialization" class="form-control" required="required">
+							<select name="Doctorspecialization" class="form-control" required="required">
 					<option value="<?php echo htmlentities($data['specilization']);?>">
 					<?php echo htmlentities($data['specilization']);?></option>
-<?php $ret=mysqli_query($con,"select * from clerkspecilization");
+<?php $ret=mysqli_query($con,"select * from doctorspecilization");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
@@ -108,38 +108,38 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 
 <div class="form-group">
-															<label for="clerkname">
-																 Clerk Name
+															<label for="doctorname">
+																 Doctor Name
 															</label>
-	<input type="text" name="clerkname" class="form-control" value="<?php echo htmlentities($data['clerkName']);?>" >
+	<input type="text" name="docname" class="form-control" value="<?php echo htmlentities($data['doctorName']);?>" >
 														</div>
 
 
 <div class="form-group">
 															<label for="address">
-																 Clerks office Address
+																 Doctor Clinic Address
 															</label>
 					<textarea name="clinicaddress" class="form-control"><?php echo htmlentities($data['address']);?></textarea>
 														</div>
 <div class="form-group">
 															<label for="fess">
-																 clerk service Fees
+																 Doctor Consultancy Fees
 															</label>
 		<input type="text" name="docfees" class="form-control" required="required"  value="<?php echo htmlentities($data['docFees']);?>" >
 														</div>
 	
 <div class="form-group">
 									<label for="fess">
-																 Clerk Contact no
+																 Doctor Contact no
 															</label>
-					<input type="text" name="clerkcontact" class="form-control" required="required"  value="<?php echo htmlentities($data['contactno']);?>">
+					<input type="text" name="doccontact" class="form-control" required="required"  value="<?php echo htmlentities($data['contactno']);?>">
 														</div>
 
 <div class="form-group">
 									<label for="fess">
-																 Clerk Email
+																 Doctor Email
 															</label>
-					<input type="email" name="clerkemail" class="form-control"  readonly="readonly"  value="<?php echo htmlentities($data['clerkEmail']);?>">
+					<input type="email" name="docemail" class="form-control"  readonly="readonly"  value="<?php echo htmlentities($data['docEmail']);?>">
 														</div>
 
 
